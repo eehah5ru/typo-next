@@ -4,7 +4,7 @@
  *
  * Eventually, some of the functionality here could be replaced by core features.
  *
- * @package _s
+ * @package Typo_Next
  */
 
 if ( ! function_exists( 'typo_next_posted_on' ) ) :
