@@ -140,10 +140,10 @@ add_action( 'widgets_init', 'typo_next_widgets_init' );
  * Enqueue scripts and styles.
  */
 function typo_next_scripts() {
-	wp_enqueue_style( '_s-style', get_stylesheet_uri(), array(), TYPO_NEXT_VERSION );
-	wp_style_add_data( '_s-style', 'rtl', 'replace' );
+	wp_enqueue_style( 'typo-next-style', get_stylesheet_uri(), array(), TYPO_NEXT_VERSION );
+	wp_style_add_data( 'typo-next-style', 'rtl', 'replace' );
 
-	wp_enqueue_script( '_s-navigation', get_template_directory_uri() . '/js/navigation.js', array(), TYPO_NEXT_VERSION, true );
+	wp_enqueue_script( 'typo-next-navigation', get_template_directory_uri() . '/js/navigation.js', array(), TYPO_NEXT_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
