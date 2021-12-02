@@ -49,54 +49,58 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	- Alignments
 
 --------------------------------------------------------------*/
+// import bulma
+@charset "utf-8";
+@import "../node_modules/bulma/bulma.sass";
 
-// Import variables and mixins.
-@import "abstracts/abstracts";
 
-/*--------------------------------------------------------------
-# Generic
---------------------------------------------------------------*/
+// // Import variables and mixins.
+// @import "abstracts/abstracts";
 
-/* Normalize
---------------------------------------------- */
-@import "generic/normalize";
+// /*--------------------------------------------------------------
+// # Generic
+// --------------------------------------------------------------*/
 
-/* Box sizing
---------------------------------------------- */
-@import "generic/box-sizing";
+// /* Normalize
+// --------------------------------------------- */
+// @import "generic/normalize";
 
-/*--------------------------------------------------------------
-# Base
---------------------------------------------------------------*/
-@import "base/base";
+// /* Box sizing
+// --------------------------------------------- */
+// @import "generic/box-sizing";
 
-/*--------------------------------------------------------------
-# Layouts
---------------------------------------------------------------*/
-// @import "layouts/content-sidebar"; // Uncomment this line for a sidebar on right side of your content.
-// @import "layouts/sidebar-content"; // Uncomment this line for a sidebar on left side of your content.
+// /*--------------------------------------------------------------
+// # Base
+// --------------------------------------------------------------*/
+// @import "base/base";
 
-/*--------------------------------------------------------------
-# Components
---------------------------------------------------------------*/
-@import "components/components";
+// /*--------------------------------------------------------------
+// # Layouts
+// --------------------------------------------------------------*/
+// // @import "layouts/content-sidebar"; // Uncomment this line for a sidebar on right side of your content.
+// // @import "layouts/sidebar-content"; // Uncomment this line for a sidebar on left side of your content.
 
-/*--------------------------------------------------------------
-# Plugins
---------------------------------------------------------------*/
+// /*--------------------------------------------------------------
+// # Components
+// --------------------------------------------------------------*/
+// @import "components/components";
 
-/* Jetpack infinite scroll
---------------------------------------------- */
-@import "plugins/jetpack/infinite-scroll";
+// /*--------------------------------------------------------------
+// # Plugins
+// --------------------------------------------------------------*/
 
-/*--------------------------------------------------------------
-# Utilities
---------------------------------------------------------------*/
+// /* Jetpack infinite scroll
+// --------------------------------------------- */
+// @import "plugins/jetpack/infinite-scroll";
 
-/* Accessibility
---------------------------------------------- */
-@import "utilities/accessibility";
+// /*--------------------------------------------------------------
+// # Utilities
+// --------------------------------------------------------------*/
 
-/* Alignments
---------------------------------------------- */
-@import "utilities/alignments";
+// /* Accessibility
+// --------------------------------------------- */
+// @import "utilities/accessibility";
+
+// /* Alignments
+// --------------------------------------------- */
+// @import "utilities/alignments";
