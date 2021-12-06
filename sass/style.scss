@@ -49,6 +49,20 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	- Alignments
 
 --------------------------------------------------------------*/
+
+//
+// import fonts
+//
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap');
+
+$family-sans-serif: Roboto, sans-serif;
+$family-monospace: "Roboto Mono", monospace;
+
+$primary: black;
+$primary-light: #E2E2E2;
+$link: #9501FF;
+       
 // import bulma
 @charset "utf-8";
 @import "../node_modules/bulma/bulma.sass";
@@ -116,14 +130,38 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
   padding-left: 0.5rem;
   padding-right: 0.5rem;
-
-  border-bottom: 2px solid $black;
+  margin-bottom: 0;
   
+  border-bottom: 2px solid $black;
+
+  &:not(:last-child) {
+    margin-bottom: 0;
+  }
+
+  @include mobile {
+    height: 44px;
+  }
+
+  @include tablet {
+    height: 75px;
+  }
+
   .menu-button {
     &.mobile {
       @extend .is-hidden-tablet;
       @extend .level-right;
     }
+
+    &.tablet {
+      @extend .is-hidden-mobile;
+      @extend .level-left;
+
+      a {
+        font-size: 25px;
+        text-transform: uppercase;
+        color: $black;
+      }
+    } 
 
     a {
       @extend .level-item;
@@ -150,10 +188,68 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
   .logo {
     @extend .level-item;
     margin: 0 !important;
- 
+
+    a {
+      line-height: 1;
+    }
+
     svg {
       height: 2rem;
     }
+  }
+
+  .search-lang-buttons {
+    @extend .is-hidden-mobile;
+
+    
+    font-size: 25px;
+      
+    a {
+      text-transform: uppercase;
+      
+      &.search-button {
+        color: $primary-light;
+      }
+
+      &.lang-button {
+        color: black;
+      }
+      
+    }    
+  }
+}
+
+header.now-in-typography {
+  height: 45px;
+  font-size: 18px;
+
+  // @extend .level;
+  // @extend .level-left;    
+
+  @extend .is-family-monospace;
+  @extend .is-hidden-mobile;
+
+  border-bottom: 2px solid $black;
+
+  align-items: center;
+  display: flex;
+  
+  > span,
+  a {
+    // @extend .level-item;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    min-width: fit-content;
+
+    color: $black;
+  }
+
+  a:hover {
+    text-decoration: underline;
+    text-decoration-color: $black;
+    text-decoration-style: dotted;
+    text-decoration-thickness: 2px;
+    color: $link;
   }
 }
 
