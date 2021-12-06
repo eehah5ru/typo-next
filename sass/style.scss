@@ -97,10 +97,64 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 // # Utilities
 // --------------------------------------------------------------*/
 
-// /* Accessibility
-// --------------------------------------------- */
-// @import "utilities/accessibility";
+/* Accessibility
+--------------------------------------------- */
+@import "utilities/accessibility";
 
 // /* Alignments
 // --------------------------------------------- */
 // @import "utilities/alignments";
+
+//
+//
+// sit header with navigation menu etc
+//
+//
+.site-header {
+  @extend .level;
+  @extend .is-mobile;
+
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+
+  border-bottom: 2px solid $black;
+  
+  .menu-button {
+    &.mobile {
+      @extend .is-hidden-tablet;
+      @extend .level-right;
+    }
+
+    a {
+      @extend .level-item;
+
+      svg {
+        height: 2.5rem;
+      }
+    }
+  }
+
+  .about-button {
+    @extend .is-hidden-tablet;
+    @extend .level-left;
+
+    a {
+      @extend .level-item;
+
+      svg {
+        height: 2rem;
+      }
+    }
+  }
+
+  .logo {
+    @extend .level-item;
+    margin: 0 !important;
+ 
+    svg {
+      height: 2rem;
+    }
+  }
+}
+
+
