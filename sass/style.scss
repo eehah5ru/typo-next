@@ -59,7 +59,10 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 $family-sans-serif: Roboto, sans-serif;
 $family-monospace: "Roboto Mono", monospace;
 
-$primary: black;
+$black: black;
+
+$text: $black;
+$primary: $black; 
 $primary-light: #E2E2E2;
 $link: #9501FF;
        
@@ -230,7 +233,8 @@ header.now-in-typography {
   @extend .is-hidden-mobile;
 
   border-bottom: 2px solid $black;
-
+  // margin-bottom: 1rem;
+  
   align-items: center;
   display: flex;
   
@@ -253,4 +257,96 @@ header.now-in-typography {
   }
 }
 
+//
+//
+// HOME PAGE
+//
+//
 
+main.home-page {
+  display: flex;
+}
+
+//
+//
+// home page about
+//
+//
+section.home-about {
+  width: 33vw;
+  font-size: 2vw;
+  line-height: 130%;
+  letter-spacing: 0.1vw;
+  
+  padding-top: 1rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  border-right: 2px solid $black;  
+
+  p:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+} 
+
+//
+//
+// home page events list
+//
+//
+section.home-events {
+  display: flex;
+  flex-flow: column wrap;
+  align-content: space-between;
+  height: fit-content;  
+  width: 67vw;
+
+  padding-top: 1rem;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  
+  &:before,
+  &:after {
+    content: "";
+    flex-basis: 100%;
+    width: 0;
+    order: 2;
+  }
+
+  article {
+    // masonry 
+    width: 32%;
+    margin-bottom: 2%; /* (100-32*3)/2 */
+
+    /* Re-order items into rows */
+    &:nth-child(3n+1) { order: 1; }
+    &:nth-child(3n+2) { order: 2; }
+    &:nth-child(3n)   { order: 3; }
+    &:nth-child(-n + 3) {
+      break-before: flex; /* так должно быть по текущей спеке */
+      break-before: always; /* так работает в Firefox, хотя не должно:) */
+    }
+    // end of masonry
+
+    padding-bottom: 2rem;
+
+    header {
+      border-top: 2px solid $black;
+      width: 50%;
+      margin-bottom: 0.3rem;
+      
+      a {
+        font-size: 18px;
+        text-transform: lowercase;
+
+        @extend .is-family-monospace; 
+      }
+    }
+
+    h2 {
+      font-size: 21px;
+      color: black;
+
+      @extend .is-family-monospace;
+    }
+  }
+}
