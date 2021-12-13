@@ -127,6 +127,9 @@ $link: #9501FF;
 // sit header with navigation menu etc
 //
 //
+
+@import "abstracts/mixins/masonry";
+
 .site-header {
   @extend .level;
   @extend .is-mobile;
@@ -282,7 +285,7 @@ section.home-about {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   border-right: 2px solid $black;  
-
+  
   p:not(:last-child) {
     margin-bottom: 1.5rem;
   }
@@ -295,38 +298,43 @@ section.home-about {
 //
 section.home-events {
   display: flex;
-  flex-flow: column wrap;
-  align-content: space-between;
-  height: fit-content;  
-  width: 67vw;
-
-  padding-top: 1rem;
-  padding-right: 0.5rem;
-  padding-left: 0.5rem;
+  flex-direction: column;
   
-  &:before,
-  &:after {
-    content: "";
-    flex-basis: 100%;
-    width: 0;
-    order: 2;
+  > header {
+    @extend .level;
+    border-bottom: 2px solid $black;
+    height: 48px;
+    padding-right: 0.5rem;
+    
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+
+    &:not(:first-child) {
+      border-top: 2px solid $black;
+    }
+    
+    a {
+      @extend .level-right;
+      @extend .level-item;
+      
+      font-size: 25px;
+      text-transform: uppercase;
+    }
+  }
+
+  > div.events-container {
+    @include masonry-container;
+    width: 67vw;
+    padding-top: 1rem;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+   
   }
 
   article {
-    // masonry 
-    width: 32%;
-    margin-bottom: 2%; /* (100-32*3)/2 */
-
-    /* Re-order items into rows */
-    &:nth-child(3n+1) { order: 1; }
-    &:nth-child(3n+2) { order: 2; }
-    &:nth-child(3n)   { order: 3; }
-    &:nth-child(-n + 3) {
-      break-before: flex; /* так должно быть по текущей спеке */
-      break-before: always; /* так работает в Firefox, хотя не должно:) */
-    }
-    // end of masonry
-
+    @include masonry-item;
+    
     padding-bottom: 2rem;
 
     header {
@@ -337,7 +345,7 @@ section.home-events {
       a {
         font-size: 18px;
         text-transform: lowercase;
-
+        
         @extend .is-family-monospace; 
       }
     }
@@ -345,6 +353,7 @@ section.home-events {
     h2 {
       font-size: 21px;
       color: black;
+      line-height: 1.2;   
 
       @extend .is-family-monospace;
     }
