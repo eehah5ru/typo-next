@@ -1,23 +1,73 @@
-.sticky {
-	display: block;
-}
+article.post {
+  > header {
+    display: flex;
+    flex-direction: row;
 
-.post,
-.page {
-	margin: 0 0 1.5em;
-}
+    border-bottom: 2px solid $black;
 
-.updated:not(.published) {
-	display: none;
-}
+    .post-thumbnail {
+      width: 33vw;
 
-.page-content,
-.entry-content,
-.entry-summary {
-	margin: 1.5em 0 0;
-}
+      img {
+        height: 100%;
+        min-width: 33vw;
+        object-fit: cover;
+      }
+    }
 
-.page-links {
-	clear: both;
-	margin: 0 0 1.5em;
+    h1 {
+      font-size: 6vw;
+      font-weight: 100;
+      line-height: 1;
+      text-align: right;
+    }
+  }
+
+  .entry-content {
+
+    display: flex;
+    flex-direction: column;
+    > p {
+
+    }
+    .wp-block-columns {
+      width: 100%;
+
+      .wp-block-column {
+        flex-grow: 0;
+        flex-shrink: 0;
+
+        flex-basis: 67vw;
+
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        padding-top: 2rem;
+        margin-left: 0;
+        margin-right: 0;
+
+        p {
+          // second column
+          width: 50%;
+
+          margin-bottom: 1rem;
+        }
+
+        &:first-child {
+          width: 33vw;
+          flex-basis: 33vw;
+          border-right: 2px solid $black;
+
+          font-size: 18px;
+          font-family: mono;
+          font-weight: 100;
+
+          p {
+            // full width for  first columnd
+            width: auto;
+          }
+        }
+
+      }
+    }
+  }
 }

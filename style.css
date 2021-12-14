@@ -49,7 +49,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	- Alignments
 
 --------------------------------------------------------------*/
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap");
 /*! bulma.io v0.9.3 | MIT License | github.com/jgthms/bulma */
 /* Bulma Utilities */
@@ -11891,6 +11891,81 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 	padding: 3rem 1.5rem 6rem;
 }
 
+/* Navigation
+--------------------------------------------- */
+/* Posts and pages
+--------------------------------------------- */
+article.post > header {
+	display: flex;
+	flex-direction: row;
+	border-bottom: 2px solid black;
+}
+
+article.post > header .post-thumbnail {
+	width: 33vw;
+}
+
+article.post > header .post-thumbnail img {
+	height: 100%;
+	min-width: 33vw;
+	object-fit: cover;
+}
+
+article.post > header h1 {
+	font-size: 6vw;
+	font-weight: 100;
+	line-height: 1;
+	text-align: right;
+}
+
+article.post .entry-content {
+	display: flex;
+	flex-direction: column;
+}
+
+article.post .entry-content .wp-block-columns {
+	width: 100%;
+}
+
+article.post .entry-content .wp-block-columns .wp-block-column {
+	flex-grow: 0;
+	flex-shrink: 0;
+	flex-basis: 67vw;
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+	padding-top: 2rem;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+article.post .entry-content .wp-block-columns .wp-block-column p {
+	width: 50%;
+	margin-bottom: 1rem;
+}
+
+article.post .entry-content .wp-block-columns .wp-block-column:first-child {
+	width: 33vw;
+	flex-basis: 33vw;
+	border-right: 2px solid black;
+	font-size: 18px;
+	font-family: mono;
+	font-weight: 100;
+}
+
+article.post .entry-content .wp-block-columns .wp-block-column:first-child p {
+	width: auto;
+}
+
+/* Comments
+--------------------------------------------- */
+/* Widgets
+--------------------------------------------- */
+/* Media
+--------------------------------------------- */
+/* Captions
+--------------------------------------------- */
+/* Galleries
+--------------------------------------------- */
 /* Accessibility
 --------------------------------------------- */
 /* Text meant only for screen readers. */
