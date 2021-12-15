@@ -55,18 +55,35 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 //
 // @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@200;300;400&display=swap');
 // @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Roboto+Mono&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-$family-sans-serif: Roboto, sans-serif;
+// @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto+Mono&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+// @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto+Mono&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+// @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+// $family-sans-serif: Roboto, sans-serif;
+$family-sans-serif: Raleway, sans-serif;
 $family-monospace: "Roboto Mono", monospace;
+$family-curly: "Lora", sans-serif;
+
+$family-secondary: $family-curly;
+$family-tertiary: "Roboto", sans-serif;
 
 $black: black;
+$red: #FB2544;
+$purple: #9501FF;
 
 $text: $black;
-$primary: $black; 
+$primary: $red;
+$primary-dark: $black;
 $primary-light: #E2E2E2;
-$link: #9501FF;
+$link: $purple;
+$strong-color: $black;
        
 // import bulma
 @charset "utf-8";
@@ -86,12 +103,12 @@ $link: #9501FF;
 
 // /* Box sizing
 // --------------------------------------------- */
-// @import "generic/box-sizing";
+@import "generic/box-sizing";
 
 // /*--------------------------------------------------------------
 // # Base
 // --------------------------------------------------------------*/
-// @import "base/base";
+@import "base/base";
 
 // /*--------------------------------------------------------------
 // # Layouts
@@ -133,6 +150,27 @@ $link: #9501FF;
 //@import "abstracts/mixins/masonry";
 
 
+//
+//
+// HEADERS 
+//
+//
+
+
+@mixin header-link {
+  @include is-not-underlined;
+  @include is-family-tertiary;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 100%;
+  color: inherit;
+  @include is-family-tertiary 
+}
+//
+//
+// site header
+//
+//
 .site-header {
   @extend .level;
   @extend .is-mobile;
@@ -155,6 +193,16 @@ $link: #9501FF;
     height: 75px;
   }
 
+  //
+  // default element appearance
+  //
+  a {
+    @include header-link;
+  }
+  
+  //
+  // header components
+  //
   .menu-button {
     &.mobile {
       @extend .is-hidden-tablet;
@@ -243,6 +291,11 @@ header.now-in-typography {
   
   align-items: center;
   display: flex;
+
+  a {
+    @include header-link;
+    @include is-family-monospace;
+  }
   
   > span,
   a {
@@ -279,6 +332,8 @@ main.home-page {
 //
 //
 section.home-about {
+  @include is-family-tertiary;
+  
   width: 33vw;
   font-size: 2vw;
   line-height: 130%;
@@ -291,6 +346,16 @@ section.home-about {
   
   p:not(:last-child) {
     margin-bottom: 1.5rem;
+  }
+
+  a {
+    // color: $red;
+    @include is-underlined($red);
+    font-size: 100%;
+    
+    &:hover {
+      color: $purple;
+    }
   }
 } 
 
@@ -306,8 +371,12 @@ section.home-events {
   > header {
     @extend .level;
     border-bottom: 2px solid $black;
-    height: 48px;
+    // height: 48px;
     padding-right: 0.5rem;
+    padding-left: 0.5rem;
+
+    background-color: $red;
+    
     
     &:not(:last-child) {
       margin-bottom: 2rem;
@@ -320,9 +389,15 @@ section.home-events {
     a {
       @extend .level-right;
       @extend .level-item;
+
+      @include header-link;
+      @include is-family-monospace;
+
+      font-weight: 300;
+      color: $white;
       
-      font-size: 25px;
-      text-transform: uppercase;
+      font-size: 3rem;
+      
     }
   }
 
@@ -345,11 +420,16 @@ section.home-events {
       width: 50%;
       margin-bottom: 0.3rem;
       
-      a {
+      a {        
+        @include is-family-monospace;
+        @include is-not-underlined;
+
+        font-style: normal;
+        font-weight: normal;
         font-size: 18px;
         text-transform: lowercase;
+
         
-        @extend .is-family-monospace; 
       }
     }
 
@@ -358,7 +438,7 @@ section.home-events {
       color: black;
       line-height: 1.2;   
 
-      @extend .is-family-monospace;
+      @include is-family-monospace;
     }
   }
 }

@@ -1,22 +1,69 @@
+// a {
+// 	color: $color__link;
+
+// 	&:visited {
+// 		color: $color__link-visited;
+// 	}
+
+// 	&:hover,
+// 	&:focus,
+// 	&:active {
+// 		color: $color__link-hover;
+// 	}
+
+// 	&:focus {
+// 		outline: thin dotted;
+// 	}
+
+// 	&:hover,
+// 	&:active {
+// 		outline: 0;
+// 	}
+// }
+
+//
+//
+// link abstractions
+//
+//
+@mixin is-underlined($color: currentColor) {
+  text-decoration: none;
+  border-bottom: $color solid 0.25em;  
+}
+
+@mixin is-not-underlined {
+  text-decoration: none !important;
+  border-bottom: none !important;  
+
+}
+
+
+//
+//
+// default decoration links in text
+//
+//
 a {
-	color: $color__link;
+  @include is-underlined;
+  // font-family: "Robot Slab";
+  // font-weight: bold;
+  // font-style: italic;
+  // letter-spacing: -0.076em;
 
-	&:visited {
-		color: $color__link-visited;
-	}
+  @include is-family-secondary;
 
-	&:hover,
-	&:focus,
-	&:active {
-		color: $color__link-hover;
-	}
+  font-weight: bold;
+  font-style: italic;
+  font-size: calc(110%);
 
-	&:focus {
-		outline: thin dotted;
-	}
+  &:hover {
+    color: $red;
+    @include is-underlined($red);
+    
+  }
+}
 
-	&:hover,
-	&:active {
-		outline: 0;
-	}
+
+a.post-thumbnail {
+  @include is-not-underlined;
 }
