@@ -322,7 +322,8 @@ header.now-in-typography {
 //
 //
 
-main.home-page {
+main.home-page,
+main.category-page {
   display: flex;
 }
 
@@ -331,7 +332,8 @@ main.home-page {
 // home page about
 //
 //
-section.home-about {
+section.home-about,
+section.category-about{
   @include is-family-tertiary;
   
   width: 33vw;
@@ -364,7 +366,8 @@ section.home-about {
 // home page events list
 //
 //
-body.home section.home-events {
+body.home section.home-events,
+body.category section.category-events  {
   display: flex;
   flex-direction: column;
   
