@@ -41,12 +41,33 @@
             )
         );
 
-        wp_link_pages(
-            array(
-                'before' => '<div class="page-links">' . esc_html__('Pages:', 'typo-next'),
-                'after'  => '</div>',
-            )
+
+        global $post;
+        $parent_post = $post;
+
+        $children_args = array(
+            'post_parent' => $post->ID
         );
+
+        $children_query = new WP_Query($children_args);
+
+        while ($children_query->have_posts()) :
+            $children_query->the_post();
+
+            get_template_part('template-parts/content', get_post_type());
+
+        endwhile;
+
+        $children_query->reset_postdata();
+        $popst = $parent_post;
+
+
+        /* wp_link_pages(
+*     array(
+*         'before' => '<div class="page-links">' . esc_html__('Pages:', 'typo-next'),
+*         'after'  => '</div>',
+*     )
+* ); */
         ?>
     </div><!-- .entry-content -->
 

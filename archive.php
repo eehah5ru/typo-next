@@ -48,23 +48,11 @@ get_header();
 
             while (have_posts()) :
                 the_post();
-            ?>
-                <article class=" post">
-                    <header>
-                        <?php the_category(', '); ?>
-                    </header>
-
-                    <?php typo_next_post_thumbnail(); ?>
-                    <h2>
-                        <?php the_title(); ?>
-                    </h2>
-                </article>
-
-            <?php
+                get_template_part('template-parts/index', 'item');
             endwhile; // End of the loop.
             ?>
         </div>
-    </section>    
+    </section>
 
 </main><!-- #main -->
 

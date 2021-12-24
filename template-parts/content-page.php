@@ -11,8 +11,8 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-  dxdsfsdffsd
-    <header class="entry-header">
+
+  <header class="entry-header">
         <?php typo_next_post_thumbnail(); ?>
 
         <?php the_title('<h1 class="entry-title">', '</h1>'); ?>

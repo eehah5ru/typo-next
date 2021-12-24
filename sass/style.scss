@@ -442,6 +442,17 @@ body.category section.category-events  {
       line-height: 1.2;   
 
       @include is-family-monospace;
+
+      a {
+        font-family: inherit;
+        font-size: inherit;
+        text-decoration: inherit;
+        text-transform: inherit;
+        font-style: inherit;
+        border-bottom: inherit;
+        color: inherit;
+        font-weight: inherit;
+      }
     }
   }
 }
