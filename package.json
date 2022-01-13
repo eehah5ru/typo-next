@@ -18,10 +18,11 @@
   },
   "devDependencies": {
     "@wordpress/scripts": "^12.1.0",
+    "bulma": "^0.9.3",
     "dir-archiver": "^1.1.1",
+    "modularscale-sass": "^3.0.10",
     "node-sass": "^4.14.1",
-    "rtlcss": "^2.5.0",
-    "bulma": "^0.9.3"
+    "rtlcss": "^2.5.0"
   },
   "rtlcssConfig": {
     "options": {
