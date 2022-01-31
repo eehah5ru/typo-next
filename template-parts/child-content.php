@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template part for displaying posts
+ * Template part for displaying child posts in ling read formats
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -10,16 +10,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
-    <style>
-        .site-main>article.post {
-        /* .text-headers:after,
-        h2:after,
-        h3:after */
-            <?php typo_next_post_gradient(); ?>
-        }
-    </style>
+<article id="post-<?php the_ID(); ?>" <?php post_class("child-post"); ?>>
     <header class="entry-header">
         <?php typo_next_post_thumbnail(); ?>
 
@@ -31,6 +22,7 @@
                 the_title('<h2 class="entry-title"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h2>');
             endif;
             ?>
+
             <div class="categories">
                 <?php typo_next_entry_categories(); ?>
             </div>
@@ -55,9 +47,8 @@
             )
         );
 
-
         /*
-           displaying children posts
+           displaying second level children posts
          */
         global $post;
         $parent_post = $post;
@@ -68,20 +59,12 @@
 
         $children_query = new WP_Query($children_args);
 
-        if ($children_query->have_posts()) :
-        ?>
-            <hr class="wp-block-separator" />
-            <h2>children posts</h2>
+        while ($children_query->have_posts()) :
+            $children_query->the_post();
 
-        <?php
-            while ($children_query->have_posts()) :
-                $children_query->the_post();
+            get_template_part('template-parts/child-content', get_post_type());
 
-                get_template_part('template-parts/child-content', get_post_type());
-
-            endwhile;
-
-        endif;
+        endwhile;
 
         $children_query->reset_postdata();
         $popst = $parent_post;
