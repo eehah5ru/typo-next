@@ -1,47 +1,74 @@
+//
+// content blocks
+//
+
+// one column content - rigjt aligned on desktop
 @mixin long-read-1-column {
   align-self: end;
   flex-grow: 0;
   flex-shrink: 0;
   display: block;
-  width: calc(67% + 2px);;
-  border-left: 2px solid $black;
-  padding-right: 0.5rem;
-  padding-left: 0.5rem;
+  width: calc(67% + 2px);
+  padding-right: grid();
+  padding-left: grid();
+
+  @include bordered(left);
+
 }
 
+// full width content
 @mixin long-read-full-width {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  padding-left: grid();
+  padding-right: grid();
 }
+
 
 @mixin long-read-block {
-  border-bottom: 2px solid $black;
+  @include bordered(bottom);
 }
 
+//
+// headings gradient builder
+//
 
-body.single-post .site-main > article.post {
+@mixin header-gradient($header-level) {
+  position: relative;
+  background-color: inherit;
 
-  a {
-    border-bottom: currentColor solid 0.25em;
-    // font-family: "Robot Slab";
-    // font-weight: bold;
-    // font-style: italic;
-    // letter-spacing: -0.076em;
+  &:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    content: "";
+    background-color: $white;
+    opacity: 0.2 + 0.2 * ($header-level - 1);
+  }
+}
 
-    @include is-family-secondary;
+//
+//
+// common styles for posts of all levels
+//
+//
+body.single-post .site-main article.post {
+  z-index: 0;
+  @include header-gradient(1);
 
-    font-weight: bold;
-    font-style: italic;
-    font-size: calc(110%);
-
+  //
+  // disable gradient background for content blocks
+  //
+  > .entry-content > *:not(article) {
+    background-color: $white;
   }
 
-  // strong {
-  //   font-family: "Roboto Slab";
-  //   // font-style: italic;
-  // }
-
+  //
+  // header of the post
+  //
   > header {
+    position: relative;
     display: flex;
     flex-direction: row;
 
@@ -52,6 +79,8 @@ body.single-post .site-main > article.post {
       flex-grow: 1;
       flex-shrink: 1;
 
+      @include bordered(right);
+
       img {
         height: 100%;
         width: auto;
@@ -59,38 +88,86 @@ body.single-post .site-main > article.post {
       }
     }
 
-    h1 {
-      font-size: 6vw;
-      font-weight: 100;
-      line-height: 1;
-      text-align: right;
-      padding-right: 0.5rem;
-
+    .text-headers {
+      display: flex;
+      flex-direction: column;
       flex-basis: 67%;
+
+      @include header-gradient(1);
+
+      h1 {
+        font-size: $long-read-h1;
+        text-align: right;
+        padding-right: grid();
+        padding-left: grid();
+
+      }
+
+      .categories {
+        text-align: right;
+        padding-right: grid();
+        padding-left: grid();
+        margin-top: auto;
+        a {
+          @extend %is-family-monospace;
+          @extend %is-not-underlined;
+          font-size: $text-size-big;
+          font-style: normal;
+        }
+      }
     }
   }
 
+  //
+  // content
+  //
   .entry-content {
 
     display: flex;
     flex-direction: column;
 
+    //
+    //
+    // post specific elements
+    //
+    //
     p {
-      // font-size: 1.5vw;
-      font-size: 1.5rem;
+      font-size: $text-size;
+      @include line-height(1);
 
       &:first-of-type {
-        padding-top: 2rem;
+        padding-top: grid(2);
       }
     }
+
+    .wp-block-buttons {
+      padding-bottom: grid(2);
+
+
+      .wp-block-button {
+        margin: 0;
+
+        &:not(:last-child) {
+          margin-right: grid(1);
+        }
+      }
+    }
+
+    //
+    //
+    // full width components
+    //
+    //
 
     > h2 {
       @include long-read-full-width;
       @include long-read-block;
 
-      font-size: 5rem;
+      @include header-gradient(2);
+
+      font-size: $long-read-h2;
       font-weight: 200;
-      line-height: 1.3;
+      line-height: 1.25;
       text-align: right;
     }
 
@@ -99,12 +176,15 @@ body.single-post .site-main > article.post {
       @include long-read-full-width;
       @include long-read-block;
 
-      @extend .is-family-monospace;
-      font-size: 3vw;
+      @include header-gradient(3);
+
+      // @extend .is-family-monospace;
+      font-size: $long-read-h3;
+      line-height: 1.25;
       // padding-left: calc(33vw + 2px + 0.5rem);
       font-weight: normal;
-      background-color: $red;
-      color: white;
+      // background-color: $red;
+      // color: white;
     }
 
     //
@@ -115,15 +195,76 @@ body.single-post .site-main > article.post {
     > p {
       @include long-read-1-column;
 
-      padding-bottom: 1rem;
+      padding-bottom: grid(2);
+
+      //
+      // borders for next non paragraph element
+      //
+      & + figure,
+      & + .wp-block-columns {
+        @include bordered(top);
+      }
     }
 
+    //
+    // figure - one and gallery
+    //
     > figure {
-      // padding-top: 0.5rem;
-      // not needed cuz margin in gallery
-      // padding-bottom: 0.5rem;
-      // @include long-read-full-width;
-      @include long-read-block;
+      &.wp-block-image {
+        display: flex;
+        flex-direction: row;
+
+        margin: 0;
+
+        @include long-read-block;
+
+        & + p {
+          padding-top: grid(2);
+        }
+
+        figcaption {
+          order: 1;
+          flex-basis: 16%;
+          flex-shrink: 0;
+          flex-grow: 0;
+          margin: 0;
+
+          @include bordered(right);
+
+          @extend %is-family-monospace;
+
+          margin-left: auto;
+          text-align: right;
+          padding-right: grid();
+          padding-top: grid();
+
+        }
+
+        a {
+          order: 2;
+          flex-grow: 0;
+          flex-shrink: 0;
+          flex-basis: calc(67%);
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+
+      &.wp-block-gallery {
+        @include long-read-block;
+      }
+    }
+
+    //
+    // buttons like p
+    //
+    > .wp-block-buttons {
+      @include long-read-1-column;
+      // @include long-read-block;
     }
 
     //
@@ -138,14 +279,14 @@ body.single-post .site-main > article.post {
       // @include long-read-block;
 
       h2 {
-        font-size: 3vw;
+        font-size: $long-read-h2;
       }
 
       h3 {
-        padding-left: 0.5rem;
-        padding-right: 0.5rem;
-        font-size: 3rem;
-        padding-top: 2rem;
+        padding-left: grid(1);
+        padding-right: grid(1);
+        font-size: $long-read-h3;
+        padding-top: grid(2);
 
         width: fit-content;
 
@@ -153,6 +294,20 @@ body.single-post .site-main > article.post {
           border-bottom: $red solid 0.25em;
         }
       }
+
+      h4 {
+        padding-left: grid(1);
+        padding-right: grid(1);
+        font-size: $long-read-h4;
+        padding-top: grid(2);
+
+        width: fit-content;
+
+        span {
+          border-bottom: $red solid 0.25em;
+        }
+      }
+
 
       .wp-block-image {
         margin: 0;
@@ -163,6 +318,9 @@ body.single-post .site-main > article.post {
         }
       }
 
+      //
+      // all columns settings
+      //
       .wp-block-column {
         flex-grow: 1;
         flex-shrink: 1;
@@ -178,34 +336,48 @@ body.single-post .site-main > article.post {
         p {
           // second column
           // width: 50%;
-          padding-left: 0.5rem;
-          padding-right: 0.5rem;
+          padding-left: grid(1);
+          padding-right: grid(1);
 
-          margin-bottom: 1rem;
+          margin-bottom: grid(2);
         }
 
-        &:first-child {
-          width: 33%;
-          flex-basis: 33%;
-          border-right: 2px solid $black;
-          @include is-family-monospace;
+        .wp-block-buttons {
+          padding-bottom: grid(2);
 
-          p {
-            // full width for  first columnd
-            font-size: 1rem;
+          padding-left: grid();
+          padding-right: grid();
+        }
+      }
 
-            width: auto;
+      //
+      // first column specific settings
+      //
+      .wp-block-column:first-child {
+        width: 33%;
+        flex-basis: 33%;
+        @include is-family-monospace;
+        @include bordered(right);
+
+        p {
+          // full width for  first columnd
+          font-size: $text-size-small;
+
+          width: auto;
+        }
+
+        strong {
+          color: $red;
+        }
+
+        .wp-block-image {
+          img {
+            width: 100%;
           }
+        }
 
-          strong {
-            color: $red;
-          }
-
-          .wp-block-image {
-            img {
-              width: 100%;
-            }
-          }
+        .wp-block-button a {
+          @extend .small;
         }
 
       }
@@ -223,4 +395,12 @@ body.single-post .site-main > article.post {
       border-bottom: 1px solid $black;
     }
   }
+}
+
+//
+//
+// root level post
+//
+//
+body.single-post .site-main > article.post {
 }

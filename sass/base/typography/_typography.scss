@@ -1,2 +1,47 @@
+//
+//
+// font sizes and line heights
+//
+//
+
+//
+// font size based on scale
+//
+@mixin font-size($scale, $thread: none) {
+  font-size: ms($scale, $thread: $thread);
+}
+
+//
+// grid based line height from scale
+//
+@mixin line-height($scale, $thread: none) {
+  $n: 1;
+
+  @if $thread == none {
+    $n: ms($scale + 1);
+  } @else {
+    $n: ms($scale + 1, $thread: $thread);
+  }
+   $h: floor($n / $grid) * $grid;
+  line-height: $h;
+}
+
+@mixin is-family-monospace {
+  font-family: $family-monospace;
+}
+
+%is-family-monospace {
+  font-family: $family-monospace;
+}
+
+@mixin is-family-secondary {
+  font-family: $family-secondary;
+}
+
+@mixin is-family-tertiary {
+  font-family: $family-tertiary;
+}
+
+
 @import "headings";
 @import "copy";

@@ -1,7 +1,108 @@
-// stylelint-disable value-keyword-case
-$font__main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-// stylelint-enable value-keyword-case
-$font__code: monaco, consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
-$font__pre: "Courier 10 Pitch", courier, monospace;
-$font__line-height-body: 1.5;
-$font__line-height-pre: 1.6;
+//
+//
+// all settings for typography
+//
+//
+
+//
+// import fonts
+//
+// @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@200;300;400&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Roboto+Mono&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+// @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto+Mono&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+// @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto+Mono&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+// @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+@font-face {
+  font-family: 'GothamPro';
+  src: url(fonts/GothamPro.otf) format('opentype');
+}
+
+@font-face {
+  font-family: 'GothamPro';
+  src: url(fonts/GothamPro-Italic.otf) format('opentype');
+  font-style: italic;
+}
+
+
+@font-face {
+  font-family: 'GothamPro';
+  src: url(fonts/GothamPro-Bold.otf) format('opentype');
+  font-weight: bold;
+}
+
+
+@font-face {
+  font-family: 'Input Mono';
+  src: url(fonts/InputMono-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'SoyuzGrotesk';
+  src: url(fonts/Soyuz-Grotesk-Bold.otf) format('opentype');
+}
+
+//
+//
+// variables
+//
+//
+
+
+//
+// sizes
+//
+
+// base text size
+$text-size: ms(1);
+$text-size-small: ms(0);
+$text-size-big: ms(2);
+
+// headings
+$heading-scales: (
+  h1: 8,
+  h2: 7,
+  h3: 6,
+  h4: 5,
+  h5: 4,
+  h6: 3,
+  h7: 2,
+  h8: 1,
+  h9: 0
+);
+
+// font sizes
+$long-read-h1: ms(map_get($heading-scales, h1), $thread: title);
+$long-read-h2: ms(map_get($heading-scales, h2), $thread: title);
+$long-read-h3: ms(map_get($heading-scales, h3), $thread: title);
+$long-read-h4: ms(map_get($heading-scales, h4), $thread: title);
+$long-read-h5: ms(map_get($heading-scales, h5), $thread: title);
+$long-read-h6: ms(map_get($heading-scales, h6), $thread: title);
+
+
+//
+// font families
+//
+// $family-sans-serif: Roboto, sans-serif;
+$family-sans-serif: GothamPro, sans-serif;
+$family-monospace: "Input Mono", monospace;
+$family-curly: "SoyuzGrotesk", sans-serif;
+
+$family-secondary: $family-curly;
+$family-tertiary: "SoyuzGrotesk", sans-serif;
+
+
+// // stylelint-disable value-keyword-case
+// $font__main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+// // stylelint-enable value-keyword-case
+// $font__code: monaco, consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+// $font__pre: "Courier 10 Pitch", courier, monospace;
+// $font__line-height-body: 1.5;
+// $font__line-height-pre: 1.6;

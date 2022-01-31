@@ -1,0 +1,10 @@
+//
+//
+// framework for borders
+//
+//
+
+@mixin bordered($where) {
+  $thicknes: 2px;
+  border-#{$where}: $black solid $thicknes;
+}

@@ -1,26 +1,3 @@
-// a {
-// 	color: $color__link;
-
-// 	&:visited {
-// 		color: $color__link-visited;
-// 	}
-
-// 	&:hover,
-// 	&:focus,
-// 	&:active {
-// 		color: $color__link-hover;
-// 	}
-
-// 	&:focus {
-// 		outline: thin dotted;
-// 	}
-
-// 	&:hover,
-// 	&:active {
-// 		outline: 0;
-// 	}
-// }
-
 //
 //
 // link abstractions
@@ -34,16 +11,32 @@
 @mixin is-not-underlined {
   text-decoration: none !important;
   border-bottom: none !important;  
+}
 
+%is-not-underlined {
+  text-decoration: none;
+  border-bottom: none;    
 }
 
 
 //
+// header link
 //
-// default decoration links in text
+%header-link {
+  @include is-not-underlined;
+  @include is-family-tertiary;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 100%;
+  color: inherit;
+  @include is-family-tertiary
+}
+
+
 //
+// links in text
 //
-a {
+%text-link {
   @include is-underlined;
   // font-family: "Robot Slab";
   // font-weight: bold;
@@ -54,7 +47,6 @@ a {
 
   font-weight: bold;
   font-style: italic;
-  font-size: calc(110%);
 
   &:hover {
     color: $red;
@@ -64,6 +56,19 @@ a {
 }
 
 
+//
+//
+// default decoration links in text
+//
+//
+a {
+  @extend %text-link;
+}
+
+
+//
+// post thumnail image links are not decorated
+//
 a.post-thumbnail {
   @include is-not-underlined;
 }
