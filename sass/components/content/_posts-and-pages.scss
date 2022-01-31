@@ -115,6 +115,16 @@ body.single-post .site-main article.post {
           font-style: normal;
         }
       }
+
+      .event-dates {
+        text-align: right;
+        padding-right: grid();
+        padding-left: grid();
+
+        font-size: $text-size;
+
+        @extend %is-family-monospace;
+      }
     }
   }
 

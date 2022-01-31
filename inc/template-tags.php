@@ -197,6 +197,11 @@ if (!function_exists('wp_body_open')) :
     }
 endif;
 
+/*
+/
+/ print gradient for post
+/
+ */
 if (!function_exists('typo_next_post_gradient')) :
     function typo_next_post_gradient()
     {
@@ -225,4 +230,19 @@ if (!function_exists('typo_next_post_gradient')) :
 );";
         endif;
     }
+endif;
+
+
+if (!function_exists('typo_next_event_dates')) :
+  function typo_next_event_dates()
+  {
+    global $post;
+
+    $begins = get_field('begins');
+    $ends = get_field('ends');
+
+    if ($begins && $ends) :
+      echo $begins . " &mdash; " . $ends;
+    endif;
+  }
 endif;
