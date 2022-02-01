@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template part for displaying child posts in ling read formats
+ * Template part for displaying child posts with 2nd level of headings
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -11,27 +11,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class("child-post"); ?>>
-    <header class="entry-header">
-        <?php typo_next_post_thumbnail(); ?>
-
-        <div class="text-headers">
-            <?php
-            if (is_singular()) :
-                the_title('<h1 class="entry-title">', '</h1>');
-            else :
-                the_title('<h2 class="entry-title"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h2>');
-            endif;
-            ?>
-          <div class="event-dates">
-            <?php typo_next_event_dates(); ?>
-          </div>
-
-            <div class="categories">
-                <?php typo_next_entry_categories(); ?>
-            </div>
-        </div>
-    </header><!-- .entry-header -->
-
+    <?php get_template_part("template-parts/post-header-level-" . $args['child_post_level'], get_post_type()); ?>
 
     <div class="entry-content">
         <?php
@@ -51,7 +31,7 @@
         );
 
         /*
-           displaying second level children posts
+           displaying next level of children posts
          */
         global $post;
         $parent_post = $post;
@@ -70,15 +50,8 @@
         endwhile;
 
         $children_query->reset_postdata();
-        $popst = $parent_post;
+        $post = $parent_post;
 
-
-        /* wp_link_pages(
-*     array(
-*         'before' => '<div class="page-links">' . esc_html__('Pages:', 'typo-next'),
-*         'after'  => '</div>',
-*     )
-* ); */
         ?>
         <hr class="wp-block-separator" />
     </div><!-- .entry-content -->

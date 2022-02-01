@@ -49,6 +49,17 @@
 }
 
 //
+// h2 full width variant
+// used by post heading and as h2 in post content
+//
+%h2-full-width {
+  font-size: $long-read-h2;
+  font-weight: 200;
+  line-height: 1.25;
+  text-align: right;
+}
+
+//
 //
 // common styles for posts of all levels
 //
@@ -88,6 +99,9 @@ body.single-post .site-main article.post {
       }
     }
 
+    //
+    // for level 1 headers
+    //
     .text-headers {
       display: flex;
       flex-direction: column;
@@ -126,6 +140,16 @@ body.single-post .site-main article.post {
         @extend %is-family-monospace;
       }
     }
+
+    //
+    // 2nd level headers
+    //
+
+    &.level-2 {
+      h2 {
+        @extend %h2-full-width;
+      }
+    }
   }
 
   //
@@ -141,7 +165,8 @@ body.single-post .site-main article.post {
     // post specific elements
     //
     //
-    p {
+    p,
+    ul {
       font-size: $text-size;
       @include line-height(1);
 
@@ -170,15 +195,11 @@ body.single-post .site-main article.post {
     //
 
     > h2 {
+      @extend %h2-full-width;
       @include long-read-full-width;
       @include long-read-block;
 
       @include header-gradient(2);
-
-      font-size: $long-read-h2;
-      font-weight: 200;
-      line-height: 1.25;
-      text-align: right;
     }
 
     > h3 {
@@ -199,20 +220,47 @@ body.single-post .site-main article.post {
 
     //
     //
-    // one column
+    // borders and paddings for next sibling non-paragraph like block
     //
     //
-    > p {
-      @include long-read-1-column;
-
-      padding-bottom: grid(2);
-
-      //
-      // borders for next non paragraph element
-      //
+    > p,
+    > ul {
       & + figure,
       & + .wp-block-columns {
         @include bordered(top);
+      }
+    }
+
+    > .wp-block-columns {
+      & + p,
+      & + ul {
+        @include bordered(top);
+
+        padding-top: grid(2);
+      }
+    }
+
+    //
+    //
+    // one column
+    //
+    //
+    > p,
+    > ul {
+      @include long-read-1-column;
+
+      padding-bottom: grid(2);
+    }
+
+    > ul {
+      list-style: disc inside none;
+    }
+
+    > ul li {
+      margin-bottom: grid();
+
+      &:last-child {
+        margin-bottom: 0;
       }
     }
 

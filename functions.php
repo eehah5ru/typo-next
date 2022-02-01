@@ -162,7 +162,12 @@ function typo_next_scripts()
     wp_enqueue_style('typo-next-style', get_stylesheet_uri(), array(), TYPO_NEXT_VERSION);
     wp_style_add_data('typo-next-style', 'rtl', 'replace');
 
+    wp_enqueue_script('typo-next-jquery', get_template_directory_uri() . '/js/jquery.min.js', array(), TYPO_NEXT_VERSION, true);
+
     wp_enqueue_script('typo-next-navigation', get_template_directory_uri() . '/js/navigation.js', array(), TYPO_NEXT_VERSION, true);
+
+    wp_enqueue_script('typo-next-main', get_template_directory_uri() . '/js/typo_next.js', array(), TYPO_NEXT_VERSION, true);
+
 
     if (is_singular() && comments_open() && get_option('thread_comments')) {
         wp_enqueue_script('comment-reply');
@@ -202,4 +207,32 @@ if (defined('JETPACK__VERSION')) {
  */
 if (class_exists('WooCommerce')) {
     require get_template_directory() . '/inc/woocommerce.php';
+}
+
+
+add_filter('render_block', 'debug_render_block', 10, 3);
+function debug_render_block($block_content, $block)
+{
+    if ($block["blockName"] != "core/image") {
+        return $block_content;
+    }
+
+  /* var_dump($block); */
+
+  $block_id = $block['attrs']["id"];
+  
+  $before = <<<END
+  <div class="modal" id="modal-wp-image-{$block_id}">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+END;
+
+  $after = <<<END
+  </div>
+  <button class="modal-close is-large" aria-label="close"></button>
+  </div>
+END;
+
+  
+  return $block_content . $before . $block_content . $after;
 }

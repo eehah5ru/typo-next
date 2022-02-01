@@ -68,7 +68,10 @@
         $parent_post = $post;
 
         $children_args = array(
-            'post_parent' => $post->ID
+            'post_parent' => $post->ID,
+            'meta_key' => 'begins',
+            'orderby' => 'meta_value',
+            'order' => 'ASC'
         );
 
         $children_query = new WP_Query($children_args);
@@ -76,15 +79,19 @@
         if ($children_query->have_posts()) :
         ?>
             <hr class="wp-block-separator" />
-            <h2>children posts</h2>
+            <h2><?php typo_next_child_posts_title(); ?></h2>
 
         <?php
-            while ($children_query->have_posts()) :
+            while ($children_query->have_posts()) {
                 $children_query->the_post();
-
-                get_template_part('template-parts/child-content', get_post_type());
-
-            endwhile;
+                get_template_part(
+                    'template-parts/child-content',
+                    get_post_type(),
+                    array(
+                        'child_post_level' => get_field("child_posts_level", $parent_post)
+                    )
+                );
+            }
 
         endif;
 

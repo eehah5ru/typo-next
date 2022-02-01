@@ -20,6 +20,7 @@
     "@wordpress/scripts": "^12.1.0",
     "bulma": "^0.9.3",
     "dir-archiver": "^1.1.1",
+    "jquery": "^3.6.0",
     "mathsass": "^0.11.0",
     "modularscale-sass": "^3.0.10",
     "node-sass": "^4.14.1",

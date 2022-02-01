@@ -241,8 +241,26 @@ if (!function_exists('typo_next_event_dates')) :
     $begins = get_field('begins');
     $ends = get_field('ends');
 
+    if ($begins && !$ends) {
+      echo $begins;
+      return;
+    }
+
     if ($begins && $ends) :
       echo $begins . " &mdash; " . $ends;
     endif;
   }
 endif;
+
+if (!function_exists('typo_next_child_posts_title')) {
+  function typo_next_child_posts_title() {
+    $t = get_field("child_posts_title");
+
+    if ($t) {
+      echo $t;
+      return;
+    }
+
+    echo "children posts";
+  }
+}
