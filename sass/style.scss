@@ -277,8 +277,10 @@ body.category section.category-events  {
         font-weight: normal;
         font-size: 18px;
         text-transform: lowercase;
+      }
 
-        
+      .event-dates {
+        @include is-family-monospace;
       }
     }
 

@@ -1,6 +1,9 @@
 <article class=" post">
   <header>
     <?php the_category(', '); ?>
+    <div class="event-dates">
+      <?php typo_next_event_dates(); ?>
+    </div>
   </header>
 
   <?php typo_next_post_thumbnail(); ?>

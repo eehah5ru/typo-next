@@ -166,7 +166,8 @@ body.single-post .site-main article.post {
     //
     //
     p,
-    ul {
+    > ul,
+    .wp-block-column > ul {
       font-size: $text-size;
       @include line-height(1);
 
