@@ -13,6 +13,15 @@
         </a>
     </div>
 
+    <?php if (array_search("is-modal-menu", $args)) : ?>
+
+        <div class="close-menu-button tablet" aria-label="close">
+            <a href="#">
+                <?php echo file_get_contents(get_template_directory_uri() . "/images/close-button.svg") ?>
+            </a>
+        </div>
+    <?php endif; ?>
+
     <div class="about-button">
         <a href="">
             <?php echo file_get_contents(get_template_directory_uri() . "/images/about-button.svg") ?>
