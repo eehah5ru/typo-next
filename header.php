@@ -27,97 +27,25 @@
     <div id="page" class="site">
         <a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e('Skip to content', 'typo-next'); ?></a>
 
-        <header id="masthead" class="site-header">
-            <div class="menu-button tablet">
-                <a href="">
-                    меню
-                </a>
+        <?php get_template_part('template-parts/website-header'); ?>
+
+        <div class="modal" id="modal-menu">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+              <?php get_template_part('template-parts/website-header'); ?>
+
+              <main id="menu-primary" class="site-main home-page">
+                <section class="home-about">
+                  <?php
+                  $post_id = get_option('page on front');
+                  $post = get_post($post_id);
+
+                  echo the_content();
+                  ?>
+                </section>
+                <section class="menu-image">
+                  <?php the_post_thumbnail(); ?>
+                </section>
             </div>
-
-            <div class="about-button">
-                <a href="">
-                    <?php echo file_get_contents(get_template_directory_uri() . "/images/about-button.svg") ?>
-                </a>
-            </div>
-
-            <div class="logo">
-                <a href="<?php echo esc_url(home_url('/')); ?>">
-                    <?php echo file_get_contents(get_template_directory_uri() . "/images/typography-logo.svg") ?>
-                </a>
-            </div>
-
-            <div class="menu-button mobile">
-                <a href="">
-                    <?php echo file_get_contents(get_template_directory_uri() . "/images/menu-button.svg") ?>
-                </a>
-            </div>
-
-            <div class="search-lang-buttons">
-                <a class="search-button" href="">
-                    поиск
-                </a>
-                |
-                <a class="lang-button" href="">
-                    EN
-                </a>
-                |
-                <a class="lang-button" href="">
-                    RU
-                </a>
-            </div>
-
-
-            <!-- <nav id="site-navigation" class="main-navigation">
-                <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e('Primary Menu', 'typo-next'); ?></button>
-                <?php
-                wp_nav_menu(
-                    array(
-                        'theme_location' => 'menu-1',
-                        'menu_id'        => 'primary-menu',
-                    )
-                );
-                ?>
-            </nav><!-- #site-navigation -->
-        </header><!-- #masthead -->
-        <header class="now-in-typography">
-            <span>
-                Сейчас в Типографии
-            </span>
-            <a href="">
-                Ты меня найдешь до 31 марта
-            </a>
-            <span>
-                |
-            </span>
-            <a href="">
-                Unaimed sessions with League of Tenders
-            </a>
-            <span>
-                |
-            </span>
-            <a href="">
-                Тренинг Фантазия
-            </a>
-            <span>
-                |
-            </span>
-            <span>
-                Сейчас в Типографии
-            </span>
-            <a href="">
-                Ты меня найдешь до 31 марта
-            </a>
-            <span>
-                |
-            </span>
-            <a href="">
-                Unaimed sessions with League of Tenders
-            </a>
-            <span>
-                |
-            </span>
-            <a href="">
-                Тренинг Фантазия
-            </a>
-
-        </header>
+            <button class="modal-close is-large" aria-label="close"></button>
+        </div>

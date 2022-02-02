@@ -1,3 +1,35 @@
+
+body.admin-bar #modal-menu {
+  margin-top: 32px !important;
+}
+
+
+#modal-menu {
+  align-items: none;
+  justify-content: flex-start;
+  
+  .modal-background {
+    z-index: -1;
+    background-color: $white;
+  }
+
+  .modal-content {
+    max-height: none;
+    width: 100%;
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+  section.home-about {
+    color: $white;
+  }
+
+  section.menu-image img {
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
 //
 //
 // site header
