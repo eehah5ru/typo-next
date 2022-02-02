@@ -34,6 +34,10 @@
   font-family: $family-monospace;
 }
 
+%is-family-primary {
+  font-family: $family-sans-serif;
+}
+
 @mixin is-family-secondary {
   font-family: $family-secondary;
 }

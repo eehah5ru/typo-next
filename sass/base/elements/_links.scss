@@ -24,12 +24,11 @@
 //
 %header-link {
   @include is-not-underlined;
-  @include is-family-tertiary;
   font-style: normal;
   font-weight: normal;
   font-size: 100%;
   color: inherit;
-  @include is-family-tertiary
+  @extend %is-family-primary;
 }
 
 
