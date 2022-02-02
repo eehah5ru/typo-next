@@ -46,6 +46,10 @@
   font-family: $family-tertiary;
 }
 
+%is-family-tertiary {
+  font-family: $family-tertiary;
+}
+
 
 @import "headings";
 @import "copy";

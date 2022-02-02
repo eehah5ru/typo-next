@@ -182,10 +182,13 @@ section.home-about,
 section.category-about{
   @include is-family-tertiary;
   
-  width: 33vw;
-  font-size: 2vw;
+  width: 33%;
+  // @include font-size(3, $thread: title);
+  // line-height: grid(2.5);
+  
+  font-size: 2.5vw;
   line-height: 130%;
-  letter-spacing: 0.1vw;
+  // letter-spacing: 0.1vw;
   
   padding-top: 1rem;
   padding-left: 0.5rem;
@@ -228,7 +231,7 @@ body.category section.category-events  {
     padding-right: 0.5rem;
     padding-left: 0.5rem;
 
-    background-color: $red;
+    // background-color: $red;
     
     
     &:not(:last-child) {
@@ -244,13 +247,12 @@ body.category section.category-events  {
       @extend .level-item;
 
       @extend %header-link;
-      @include is-family-monospace;
+      @include is-family-tertiary;
 
       font-weight: 300;
-      color: $white;
+      // color: $white;
       
-      font-size: 3rem;
-      
+      @include font-size(8, $thread: title);
     }
   }
 
@@ -270,7 +272,7 @@ body.category section.category-events  {
 
     header {
       border-top: 2px solid $black;
-      width: 50%;
+      // width: 50%;
       margin-bottom: 0.3rem;
       
       a {        
@@ -279,21 +281,33 @@ body.category section.category-events  {
 
         font-style: normal;
         font-weight: normal;
-        font-size: 18px;
+        @include font-size(1, $thread: title);
+        @include line-height(1, $thread: title);
+        
+        
         text-transform: lowercase;
       }
 
       .event-dates {
         @include is-family-monospace;
+        @include font-size(0, $thread: title);
+        @include line-height(0, $thread: title);
+        
       }
     }
 
-    h2 {
-      font-size: 21px;
-      color: black;
-      line-height: 1.2;   
+    a.post-thumbnail {
+      display: block;
+      line-height: 0;
+    }
 
-      @include is-family-monospace;
+    h2 {
+      @include font-size(3, $thread: title);
+      line-height: ms(3, $thread: title);
+      
+      color: black;
+
+      @extend %is-family-tertiary;
 
       a {
         font-family: inherit;
@@ -304,6 +318,7 @@ body.category section.category-events  {
         border-bottom: inherit;
         color: inherit;
         font-weight: inherit;
+        line-height: inherit;
       }
     }
   }
