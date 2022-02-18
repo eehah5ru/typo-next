@@ -49,6 +49,7 @@
   },
   "dependencies": {
     "cgb-scripts": "1.23.1",
-    "create-guten-block": "^1.14.1"
+    "create-guten-block": "^1.14.1",
+    "jquery.marquee": "^1.6.0"
   }
 }
