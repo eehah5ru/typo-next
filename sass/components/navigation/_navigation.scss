@@ -216,24 +216,37 @@ header.now-in-typography {
   border-bottom: 2px solid $black;
   // margin-bottom: 1rem;
   
-  align-items: center;
-  display: flex;
+  // display: flex;
 
+  .js-marquee-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 45px;
+  }
+  
+  .js-marquee {
+    display: flex;
+    flex-direction: row;
+
+    > span,
+    > a {
+      flex-basis: 0;
+      
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+      min-width: fit-content;
+      
+      color: $black;
+      
+    }
+  }
+  
   a {
     @extend %header-link;
     @include is-family-monospace;
   }
   
-  > span,
-  a {
-    // @extend .level-item;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-    min-width: fit-content;
-
-    color: $black;
-  }
-
   a:hover {
     text-decoration: underline;
     text-decoration-color: $black;

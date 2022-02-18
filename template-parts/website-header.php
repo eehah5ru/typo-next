@@ -67,7 +67,7 @@
                 ?>
             </nav><!-- #site-navigation -->
 </header><!-- #masthead -->
-<header class="now-in-typography">
+<header class="now-in-typography marquee">
     <span>
         Сейчас в Типографии
     </span>

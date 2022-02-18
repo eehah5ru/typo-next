@@ -163,6 +163,8 @@ function typo_next_scripts()
     wp_style_add_data('typo-next-style', 'rtl', 'replace');
 
     wp_enqueue_script('typo-next-jquery', get_template_directory_uri() . '/js/jquery.min.js', array(), TYPO_NEXT_VERSION, true);
+    wp_enqueue_script('typo-next-jquery-marquee', get_template_directory_uri() . '/js/jquery.marquee.min.js', array(), TYPO_NEXT_VERSION, true);
+
 
     wp_enqueue_script('typo-next-navigation', get_template_directory_uri() . '/js/navigation.js', array(), TYPO_NEXT_VERSION, true);
 
@@ -217,22 +219,22 @@ function debug_render_block($block_content, $block)
         return $block_content;
     }
 
-  /* var_dump($block); */
+    /* var_dump($block); */
 
-  $block_id = $block['attrs']["id"];
-  
-  $before = <<<END
+    $block_id = $block['attrs']["id"];
+
+    $before = <<<END
   <div class="modal" id="modal-wp-image-{$block_id}">
   <div class="modal-background"></div>
   <div class="modal-content">
 END;
 
-  $after = <<<END
+    $after = <<<END
   </div>
   <button class="modal-close is-large" aria-label="close"></button>
   </div>
 END;
 
-  
-  return $block_content . $before . $block_content . $after;
+
+    return $block_content . $before . $block_content . $after;
 }

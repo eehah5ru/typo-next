@@ -11,8 +11,37 @@
   $("article.post .entry-content .wp-block-column h3").wrapInner("<span></span>");
   $("article.post .entry-content .wp-block-column h4").wrapInner("<span></span>");
 
+  //
+  // marquee
+  // details: https://github.com/aamirafridi/jQuery.Marquee
+  //
+  //
+  const startMarquee = function (selector) {
+    $(selector).marquee({
+      //duration in milliseconds of the marquee
+      duration: 15000,
+      //gap in pixels between the tickers
+      gap: 50,
+      //time in milliseconds before the marquee will start animating
+      delayBeforeStart: 0,
+      //'left' or 'right'
+      direction: 'left',
+      //true or false - should the marquee be duplicated to show an effect of continues flow
+      duplicated: true,
+      startVisible: true
+    });
+  };
 
+  const toggleMarquee = function(selector) {
+    $(selector).marquee('resume');
+  };
 
+  //
+  // start all marquees on the page after loading
+  //
+  // startMarquee(":not(.modal-content) .marquee");
+
+  startMarquee("div:not(#modal-menu) .marquee");
 
   //
   //
@@ -42,6 +71,9 @@
     // Functions to open and close a modal
     function openModal($el) {
       $el.classList.add('is-active');
+      // start marquee;
+      // startMarquee(".modal-content .marquee");
+      toggleMarquee("#modal-menu .marquee");
     }
 
     function closeModal($el) {
