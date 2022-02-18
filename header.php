@@ -41,7 +41,7 @@
                 <main id="menu-primary" class="site-main home-page">
                     <section class="home-about">
                         <?php
-                        $post_id = get_option('page on front');
+                        $post_id = get_option('page_on_front');
                         $post = get_post($post_id);
 
                         echo the_content();

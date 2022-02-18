@@ -1,0 +1,23 @@
+//
+//
+// styles for children posts components
+//
+//
+
+section.children-posts.popup {
+  background: red;
+  .columns {
+    margin: 0;
+  }
+
+  article.child-post .post-thumbnail {
+    height: 100%;
+
+    img {
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  padding: 0;
+}

@@ -64,7 +64,8 @@
 // common styles for posts of all levels
 //
 //
-body.single-post .site-main article.post {
+body.single-post .site-main article.post,
+body.page .site-main article.page {
   z-index: 0;
   @include header-gradient(1);
 
@@ -247,7 +248,8 @@ body.single-post .site-main article.post {
     //
     //
     > p,
-    > ul {
+    > ul,
+    > section.children-posts {
       @include long-read-1-column;
 
       padding-bottom: grid(2);
@@ -263,6 +265,13 @@ body.single-post .site-main article.post {
       &:last-child {
         margin-bottom: 0;
       }
+    }
+
+    //
+    // children posts specific styles
+    //
+    > section.children-posts {
+      padding: 0;
     }
 
     //
@@ -462,4 +471,31 @@ body.single-post .site-main article.post {
 //
 //
 body.single-post .site-main > article.post {
+}
+
+//
+//
+// posts navigation
+//
+//
+
+nav.post-navigation {
+  @include long-read-full-width;
+  @include long-read-block;
+
+  margin-bottom: grid();
+
+  .nav-links {
+    display: flex;
+    flex-direction: row;
+
+    a {
+      font-size: $long-read-h4;
+      @extend %is-not-underlined;
+    }
+
+    .nav-next {
+      margin-left: auto;
+    }
+  }
 }

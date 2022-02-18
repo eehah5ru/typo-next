@@ -13,7 +13,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
     <style>
-        .site-main>article.post {
+        .site-main > article.post {
             /* .text-headers:after,
         h2:after,
         h3:after */
@@ -96,7 +96,7 @@
         endif;
 
         $children_query->reset_postdata();
-        $popst = $parent_post;
+        $post = $parent_post;
 
 
         /* wp_link_pages(
