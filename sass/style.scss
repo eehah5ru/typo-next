@@ -271,9 +271,19 @@ body.category section.category-events  {
     padding-bottom: 2rem;
 
     header {
-      border-top: 2px solid $black;
       // width: 50%;
       margin-bottom: 0.3rem;
+      padding-top: 0.2rem;
+      position: relative;
+
+      &:before {
+        border-top: 2px solid $black;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50%;
+        content: " ";
+      }
       
       a {        
         @include is-family-monospace;

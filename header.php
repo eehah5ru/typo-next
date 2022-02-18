@@ -53,3 +53,6 @@
             </div>
             <!-- <button class="modal-close is-large" aria-label="close"></button> -->
         </div>
+        <?php
+        wp_reset_postdata();
+        ?>
