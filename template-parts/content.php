@@ -60,45 +60,6 @@
             )
         );
 
-
-        /*
-           displaying children posts
-         */
-        global $post;
-        $parent_post = $post;
-
-        $children_args = array(
-            'post_parent' => $post->ID,
-            'meta_key' => 'begins',
-            'orderby' => 'meta_value',
-            'order' => 'ASC'
-        );
-
-        $children_query = new WP_Query($children_args);
-
-        if ($children_query->have_posts()) :
-        ?>
-            <hr class="wp-block-separator" />
-            <h2><?php typo_next_child_posts_title(); ?></h2>
-
-        <?php
-            while ($children_query->have_posts()) {
-                $children_query->the_post();
-                get_template_part(
-                    'template-parts/child-content',
-                    get_post_type(),
-                    array(
-                        'child_post_level' => get_field("child_posts_level", $parent_post)
-                    )
-                );
-            }
-
-        endif;
-
-        $children_query->reset_postdata();
-        $post = $parent_post;
-
-
         /* wp_link_pages(
 *     array(
 *         'before' => '<div class="page-links">' . esc_html__('Pages:', 'typo-next'),
