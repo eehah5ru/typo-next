@@ -1,0 +1,60 @@
+@mixin modal-website-header-with-admin-bar($selector) {
+  body.admin-bar #{$selector} .site-header {
+    margin-top: 32px !important;
+  }
+
+  body.admin-bar #{$selector} .now-in-typography {
+    margin-top: 32px + 75px !important;
+  }
+}
+
+.modal {
+  align-items: none;
+  justify-content: flex-start;
+
+  .modal-background {
+    z-index: -1;
+    background-color: $white;
+  }
+
+  .modal-content {
+    max-height: none;
+    width: 100%;
+    margin: 0;
+    overflow-x: hidden;
+    scrollbar-width: none;
+  }
+
+  header.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    background-color: $white;
+
+    .menu-button {
+      @extend .is-hidden;
+    }
+  }
+
+  .modal-close {
+    position: static;
+  }
+
+  header.now-in-typography {
+    background-color: $black;
+    color: $white;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin-top: 75px;
+
+    a,
+    span{
+      color: $white
+    }
+  }
+}

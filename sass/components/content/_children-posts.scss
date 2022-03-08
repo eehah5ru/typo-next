@@ -5,7 +5,6 @@
 //
 
 section.children-posts.popup {
-  background: red;
   .columns {
     margin: 0;
   }
@@ -14,10 +13,29 @@ section.children-posts.popup {
     height: 100%;
 
     img {
-      height: 100%;
       object-fit: cover;
+      aspect-ratio: 1 / 1;
     }
   }
 
   padding: 0;
+}
+
+//
+//
+// layout for post's modal window
+//
+//
+// tune for admin bar
+@include modal-website-header-with-admin-bar(".modal-post");
+
+body.admin-bar .modal-post .site-main {
+  margin-top: 32px + 75px + 45px !important;
+}
+
+.modal-post {
+  .site-main {
+    margin-top: 75px + 45px;
+
+  }
 }

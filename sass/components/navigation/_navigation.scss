@@ -1,33 +1,21 @@
-body.admin-bar #modal-menu .site-header {
-  margin-top: 32px !important;
-}
 
-body.admin-bar #modal-menu .now-in-typography {
-  margin-top: 32px + 75px !important;
-}
+//
+//
+// modal menu
+//
+//
+
+// tune for admin bar
+@include modal-website-header-with-admin-bar(#modal-menu);
 
 body.admin-bar #modal-menu .home-about {
   margin-top: 32px + 75px + 45px !important;
 }
 
-
+//
+// menu specific settings
+//
 #modal-menu {
-  align-items: none;
-  justify-content: flex-start;
-  
-  .modal-background {
-    z-index: -1;
-    background-color: $white;
-  }
-
-  .modal-content {
-    max-height: none;
-    width: 100%;
-    margin: 0;
-    overflow-x: hidden;
-    scrollbar-width: none;
-  }
-
   section.home-about {
     margin-top: 75px + 45px;
     
@@ -41,39 +29,6 @@ body.admin-bar #modal-menu .home-about {
   section.menu-image img {
     height: 100%;
     object-fit: cover;
-  }
-
-  header.site-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-
-    background-color: $white;
-    
-    .menu-button {
-      @extend .is-hidden;
-    }
-  }
-
-  .modal-close {
-    position: static;
-  }
-
-  header.now-in-typography {
-    background-color: $black;
-    color: $white;
-
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    margin-top: 75px;
-    
-    a,
-    span{
-      color: $white
-    }
   }
 }
 

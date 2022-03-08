@@ -65,7 +65,7 @@
 //
 //
 body.single-post .site-main article.post,
-body.page .site-main article.page {
+body.page .site-main  article.page {
   z-index: 0;
   @include header-gradient(1);
 
@@ -88,15 +88,15 @@ body.page .site-main article.page {
 
     .post-thumbnail {
       flex-basis: calc(33%);
-      flex-grow: 1;
-      flex-shrink: 1;
+      flex-grow: 0;
+      flex-shrink: 0;
+      line-height: 0;
 
       @include bordered(right);
 
       img {
-        height: 100%;
-        width: auto;
         object-fit: cover;
+        aspect-ratio: 1 / 1;
       }
     }
 
@@ -156,7 +156,7 @@ body.page .site-main article.page {
   //
   // content
   //
-  .entry-content {
+  > .entry-content {
 
     display: flex;
     flex-direction: column;
@@ -235,7 +235,8 @@ body.page .site-main article.page {
 
     > .wp-block-columns {
       & + p,
-      & + ul {
+      & + ul,
+      & + h2 {
         @include bordered(top);
 
         padding-top: grid(2);
@@ -340,13 +341,16 @@ body.page .site-main article.page {
     // two columns layout
     //
     //
-    .wp-block-columns {
+    > .wp-block-columns {
       width: 100%;
       margin-bottom: 0;
 
       // @include long-read-block;
 
       h2 {
+        padding-left: grid(1);
+        padding-right: grid(1);
+
         font-size: $long-read-h2;
       }
 
@@ -355,8 +359,6 @@ body.page .site-main article.page {
         padding-right: grid(1);
         font-size: $long-read-h3;
         padding-top: grid(2);
-
-        width: fit-content;
 
         span {
           border-bottom: $red solid 0.25em;
@@ -369,12 +371,18 @@ body.page .site-main article.page {
         font-size: $long-read-h4;
         padding-top: grid(2);
 
-        width: fit-content;
-
         span {
           border-bottom: $red solid 0.25em;
         }
       }
+
+       // not affect to modals!
+      > h2,
+      > h3,
+      > h4 {
+        width: fit-content;
+      }
+
 
 
       .wp-block-image {
@@ -491,6 +499,7 @@ nav.post-navigation {
 
     a {
       font-size: $long-read-h4;
+      @extend %is-family-tertiary;
       @extend %is-not-underlined;
     }
 

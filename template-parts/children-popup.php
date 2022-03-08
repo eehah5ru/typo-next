@@ -25,7 +25,7 @@ if ($children_query->have_posts()) :
 ?>
 
     <section class="children-posts popup">
-        <div class="columns">
+        <div class="columns is-multiline is-tablet">
             <?php
             while ($children_query->have_posts()) {
                 $children_query->the_post();

@@ -1,0 +1,51 @@
+* before meeting on 17th
+** index page
+*** logo - bigger and more contrast
+*** DONE line over thumbnail - half size
+** menu
+*** cover photo -> position: fixed
+*** now in typography
+**** through page
+**** DONE running line
+*** about page
+**** design of nested pages
+***** thumbnail
+***** popup
+** long read
+*** DONE not working menu - emoty text
+*** DONE insert shortcut to another post
+*** DONE footer
+*** standard child page
+*** cover image
+**** DONE remove garbage
+**** add about etc
+* longreads
+** add support for different font sizes via classes
+** block designs
+*** quote
+*** lists
+*** extract
+*** embed video
+*** embed audio
+*** cover image
+*  categories
+** fix nested pages wo specific category in posts lis on category page
+** pagination
+* sidebar???
+** contacts etc
+* accessibility
+** enable
+* DONE multi theme
+** https://wordpress.org/plugins/jonradio-multiple-themes/
+** https://www.wpbeginner.com/wp-themes/how-to-use-multiple-themes-for-pages-in-wordpress/
+** https://kinsta.com/blog/wordpress-permalinks/ - use redirect to old posts
+* archive posts
+** remove posts limits in queries
+* migration
+** disable comments
+** migrate to last wp version
+** enable gutenberg
+** install plugins
+*** multi theme
+*** hierarchical posts
+*** Advanced Custom Fields

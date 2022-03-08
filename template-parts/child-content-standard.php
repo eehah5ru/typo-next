@@ -30,28 +30,6 @@
             )
         );
 
-        /*
-           displaying next level of children posts
-         */
-        global $post;
-        $parent_post = $post;
-
-        $children_args = array(
-            'post_parent' => $post->ID
-        );
-
-        $children_query = new WP_Query($children_args);
-
-        while ($children_query->have_posts()) :
-            $children_query->the_post();
-
-            get_template_part('template-parts/child-content', get_post_type());
-
-        endwhile;
-
-        $children_query->reset_postdata();
-        $post = $parent_post;
-
         ?>
         <hr class="wp-block-separator" />
     </div><!-- .entry-content -->

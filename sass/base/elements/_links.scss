@@ -5,7 +5,7 @@
 //
 @mixin is-underlined($color: currentColor) {
   text-decoration: none;
-  border-bottom: $color solid 0.25em;  
+  border-bottom: $color solid 0.15em;  
 }
 
 @mixin is-not-underlined {
@@ -42,9 +42,10 @@
   // font-style: italic;
   // letter-spacing: -0.076em;
 
-  @include is-family-secondary;
+  // @include is-family-secondary;
 
-  font-weight: bold;
+  font-family: inherit;
+  font-weight: inherit;
   font-style: italic;
 
   &:hover {
